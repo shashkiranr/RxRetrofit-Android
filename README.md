@@ -8,6 +8,8 @@
 
 **`RxRetrofit`** can be used to get make simple API calls. 
 
+**In the example I have got Time Zone information using Google Time Zone Api**
+
 
 ## **How to Use**
 
