@@ -33,10 +33,6 @@ allprojects {
 ```
 
 ```groovy
-  RxRetrofit rxRetrofit = new RxRetrofit(this);
-```
-
-```groovy
     @Override
     public void getResult(Object result) {
         JsonElement jsonElement = gson.toJsonTree(result);
