@@ -4,6 +4,7 @@
 ## **RxRetrofit-Android**
 
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
+[![](https://jitpack.io/v/shashkiranr/RxRetrofit-Android.svg)](https://jitpack.io/#shashkiranr/RxRetrofit-Android)
 
 **`RxRetrofit`** can be used to get make simple API calls. 
 
@@ -19,6 +20,12 @@ allprojects {
 			...
 			maven { url 'https://jitpack.io' }
 		}
+	}
+```
+
+```groovy
+	dependencies {
+	        compile 'com.github.shashkiranr:RxRetrofit-Android:0.0.1'
 	}
 ```
 
