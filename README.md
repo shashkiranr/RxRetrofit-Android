@@ -49,7 +49,7 @@ allprojects {
     }
 ```
 
-#### *STEP 3 - Get the data from the API call by using `getSimpleJsonQuery` method. Pass the base url, end point string, query parameters in form of map, scheduler for RxJava*
+#### *STEP 3 - Get the data from the API call by using `getSimpleJsonQuery` method. Pass the base url, end point string, query parameters in form of Map<String,Object>, scheduler for RxJava*
 
 ```groovy
     rxRetrofit.getSimpleJsonQuery(BASE_URL,END_POINT_STRING, data, null);
