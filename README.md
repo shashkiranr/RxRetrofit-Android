@@ -27,8 +27,9 @@ allprojects {
 
 ```groovy
 	dependencies {
-	        compile 'com.github.shashkiranr:RxRetrofit-Android:0.0.1'
+	        compile 'com.github.shashkiranr:RxRetrofit-Android:0.0.2'
 	}
+
 ```
 
 #### *STEP 2 - Initialize RxRetrofit with context, implement the interface `RxRetrofit.RxRetrofitCallBack` methods*
@@ -44,15 +45,14 @@ allprojects {
 ```groovy
     @Override
     public void getResult(Object result) {
-        JsonElement jsonElement = gson.toJsonTree(result);
-        YourPojo pojo = gson.fromJson(jsonElement, YourPojo.class);
+        YourPojo pojo = (YourPojo) result;
     }
 ```
 
-#### *STEP 3 - Get the data from the API call by using `getSimpleJsonQuery` method. Pass the base url, end point string, query parameters in form of Map<String,Object>, scheduler for RxJava*
+#### *STEP 3 - Get the data from the API call by using `getSimpleJsonQuery` method. Pass the base url, end point string, query parameters in form of Map<String,Object>, scheduler and `YourPojo.class` for RxJava*
 
 ```groovy
-    rxRetrofit.getSimpleJsonQuery(BASE_URL,END_POINT_STRING, data, null);
+    rxRetrofit.getSimpleJsonQuery(BASE_URL,END_POINT_STRING, data, null,YourPojo.class);
 ```
 
 ## ***Thats it !!***
