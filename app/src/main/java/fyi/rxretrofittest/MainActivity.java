@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements RxRetrofit.RxRetr
     public static final String BASE_URL = "https://maps.googleapis.com/maps/api/timezone/";
     public static final String END_POINT_STRING = "json?";
     private static final String TAG = MainActivity.class.getSimpleName();
-    private Gson gson = new GsonBuilder().create();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements RxRetrofit.RxRetr
         setContentView(R.layout.activity_main);
 
         String addressFormat = null;
-        Address address = DateTimeUtils.getLatLng("New York", this);
+        Address address = DateTimeUtils.getLatLng("seol", this);
         if (address != null) {
             addressFormat = address.getLatitude() + "," + address.getLongitude();
         } else {
@@ -45,14 +44,14 @@ public class MainActivity extends AppCompatActivity implements RxRetrofit.RxRetr
         data.put("key", API_KEY);
 
         RxRetrofit rxRetrofit = new RxRetrofit(this);
-        rxRetrofit.getSimpleJsonQuery(BASE_URL,END_POINT_STRING, data, null);
+        rxRetrofit.getSimpleJsonQuery(BASE_URL,END_POINT_STRING, data, null,ApiDetail.class);
     }
+
 
     @Override
     public void getResult(Object result) {
-        JsonElement jsonElement = gson.toJsonTree(result);
-        ApiDetail apiDetail = gson.fromJson(jsonElement, ApiDetail.class);
-        Log.d(TAG, "apidetail to string" + apiDetail.toString());
-
+        ApiDetail apiDetail = (ApiDetail) result;
+        Log.d(TAG, "apidetail to string " + result.toString());
     }
+
 }
