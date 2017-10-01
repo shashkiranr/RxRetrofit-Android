@@ -48,7 +48,7 @@ public class RxRetrofit {
             public void onNext(@io.reactivex.annotations.NonNull Object object) {
                 try {
                     JsonElement jsonElement = gson.toJsonTree(object);
-                    rxRetrofitCallBack.getResult(gson.fromJson(jsonElement, returnClassType));
+                    rxRetrofitCallBack.onNext(gson.fromJson(jsonElement, returnClassType));
 
                 } catch (Exception e) {
                     Log.d(TAG, "callback methods are not found " + e.getMessage());
@@ -59,10 +59,12 @@ public class RxRetrofit {
             @Override
             public void onError(@io.reactivex.annotations.NonNull Throwable e) {
                 Log.d(TAG, "onError: " + e.getMessage());
+                rxRetrofitCallBack.onError(e);
             }
 
             @Override
             public void onComplete() {
+                rxRetrofitCallBack.onComplete();
             }
         };
 
@@ -82,6 +84,12 @@ public class RxRetrofit {
     }
 
     public interface RxRetrofitCallBack {
-        void getResult(Object result);
+
+        void onNext(Object result);
+
+        void onError(Throwable e);
+
+        void onComplete();
+
     }
 }

@@ -49,9 +49,19 @@ public class MainActivity extends AppCompatActivity implements RxRetrofit.RxRetr
 
 
     @Override
-    public void getResult(Object result) {
+    public void onNext(Object result) {
         ApiDetail apiDetail = (ApiDetail) result;
         Log.d(TAG, "apidetail to string " + result.toString());
     }
 
+    @Override
+    public void onError(Throwable e) {
+        Log.d(TAG, "onError: " + e.toString());
+    }
+
+    @Override
+    public void onComplete() {
+        Log.d(TAG, "onComplete: ");
+
+    }
 }

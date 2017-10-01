@@ -1,6 +1,7 @@
 package fyi.library.rxretrofit;
 
 import java.util.Map;
+import java.util.Objects;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
