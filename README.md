@@ -27,7 +27,7 @@ allprojects {
 
 ```groovy
 	dependencies {
-	        compile 'com.github.shashkiranr:RxRetrofit-Android:0.0.2'
+	        compile 'com.github.shashkiranr:RxRetrofit-Android:0.0.4'
 	}
 
 ```
@@ -46,6 +46,16 @@ allprojects {
     @Override
     public void getResult(Object result) {
         YourPojo pojo = (YourPojo) result;
+    }
+    
+    @Override
+    public void onError(Throwable throwable) {
+
+    }
+
+    @Override
+    public void onComplete() {
+
     }
 ```
 
